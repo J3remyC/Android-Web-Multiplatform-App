@@ -6,7 +6,7 @@
 * **AI Tool & Model**: Codex (exact model version unavailable).
 * **Task / Issue Reference**: Initialize Git and push to https://github.com/J3remyC/Android-Web-Multiplatform-App.git.
 * **Target Platform(s)**: [x] Android  [x] Web (Wasm)  [x] Web (JS)  [x] Shared (commonMain). Repository setup only.
-* **Status**: In Progress
+* **Status**: Completed
 
 ---
 
@@ -33,19 +33,20 @@
 ---
 
 ## 4. Implementation & Code Changes
-* **Summary of Changes**: Initialized Git on `main`, configured `origin` and repository-local email, and prepared the existing project for its first commit. Application code unchanged.
+* **Summary of Changes**: Initialized Git on `main`, configured `origin` and repository-local email, committed 54 project files, and pushed to `origin/main` with upstream tracking. Set the Unix Gradle wrapper executable bit in Git. Application code unchanged.
 * **File Changes**:
   * `[NEW]` `.git/`: Local version-control metadata, not committed.
   * `[NEW]` `docs/ai-logs/11-12-2026 - Initialize Git and Push to GitHub.md`: Template-based task log.
-  * Existing source, build configuration, resources, documentation, and `AGENTS.md` will be included in the initial snapshot.
+  * Existing source, build configuration, resources, documentation, and `AGENTS.md` are included in initial commit `a04d65989a671493148c6852008e64096ebd6910`.
+  * `[MODIFIED]` `gradlew`: Recorded executable mode `100755` for Unix checkouts; file contents unchanged.
 * **Key Code Snippets / Details**: No application implementation changes.
 
 ---
 
 ## 5. Verification & Testing
 * **Automated Tests Executed**: Application tests and builds skipped because this task only initializes version control. `git ls-remote --symref` succeeded and returned no existing branches. `git check-ignore` confirmed exclusion of `local.properties`, `.idea`, `.gradle`, `.kotlin`, and build directories. A filename-only scan found no matching common private-key or token signatures in publishable files; this is not an exhaustive secret audit.
-* **Manual Verification**: Reviewed the full untracked-file list and confirmed the configured Git author. Commit and remote synchronization checks pending.
-* **Results & Observations**: Local initialization and remote access succeeded. Initial commit and push pending at this snapshot.
+* **Manual Verification**: Reviewed the full untracked-file list and confirmed the configured Git author. `git diff --cached --check` passed before committing. `git ls-files` confirmed excluded paths were not tracked. `git ls-files --stage gradlew` confirmed executable mode `100755`. Checked the template's metadata and all seven log sections.
+* **Results & Observations**: `git push -u origin main` succeeded. `git rev-parse HEAD` and `git ls-remote origin refs/heads/main` both returned `a04d65989a671493148c6852008e64096ebd6910`. `git status --short --branch` showed a clean working tree tracking `origin/main`. This completed log is recorded in a subsequent documentation commit.
 
 ---
 
@@ -57,6 +58,6 @@
 ---
 
 ## 7. Next Steps & Follow-ups
-* [ ] Commit the project and push `main` with upstream tracking.
-* [ ] Verify the remote commit and clean local working tree, then complete this log.
+* [x] Commit the project and push `main` with upstream tracking.
+* [x] Verify the remote commit and clean local working tree, then complete this log.
 * **Known Limitations / Tech Debt**: Application functionality and builds were not validated as part of repository initialization.
